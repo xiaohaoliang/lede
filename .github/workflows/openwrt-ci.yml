@@ -19,7 +19,7 @@ on:
   #   types: [published]
 
 env:
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
 
 jobs:
 
@@ -61,13 +61,6 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-
-      - name: Generate configuration file 0
-        run: | 
-          make defconfig
-          echo -----------------------------------------
-          cat ./.config
-          echo -----------------------------------------
       
       - name: SSH connection to Actions_0
         uses: P3TERX/debugger-action@master
