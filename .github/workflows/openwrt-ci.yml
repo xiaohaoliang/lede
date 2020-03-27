@@ -19,7 +19,7 @@ on:
   #   types: [published]
 
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
 
 jobs:
 
