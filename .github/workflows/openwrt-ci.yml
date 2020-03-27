@@ -63,7 +63,7 @@ jobs:
 
       
       - name: SSH connection to Actions_0
-        uses: P3TERX/debugger-action@master
+        uses: xiaohaoliang/debugger-action@master
         if: env.SSH_ACTIONS == 'true'
 
       - name: Generate configuration file
@@ -106,9 +106,9 @@ jobs:
 
           # 编译树莓派4B固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_brcm2708=y
-          CONFIG_TARGET_brcm2708_bcm2711=y
-          CONFIG_TARGET_brcm2708_bcm2711_DEVICE_rpi-4=y
+          CONFIG_TARGET_bcm27xx=y
+          CONFIG_TARGET_brcm27xx_bcm2711=y
+          CONFIG_TARGET_brcm27xx_bcm2711_DEVICE_rpi-4=y
           EOF
 
           # 固件压缩:
@@ -208,7 +208,7 @@ jobs:
           echo -----------------------------------------
 
       - name: SSH connection to Actions 1
-        uses: P3TERX/debugger-action@master
+        uses: xiaohaoliang/debugger-action@master
         if: env.SSH_ACTIONS == 'true'
 
       - name: Make download
