@@ -12,7 +12,7 @@ name: OpenWrt-CI
 on:
   push:
     branches: 
-      - master
+      - raspi-4b-32bit
   # schedule:
   #   - cron: 0 20 * * *
   # release:
@@ -107,9 +107,8 @@ jobs:
           # 编译树莓派4B固件:
           cat >> .config <<EOF
           CONFIG_TARGET_bcm27xx=y
-          CONFIG_TARGET_bcm27xx_bcm2711=y
-          CONFIG_TARGET_bcm27xx_bcm2711_DEVICE_rpi-4=y
-          CONFIG_ARCH_32BIT=y
+          CONFIG_TARGET_bcm27xx_bcm2709=y
+          CONFIG_TARGET_bcm27xx_bcm2709_DEVICE_rpi-2=y
           EOF
 
           # 固件压缩:
@@ -150,6 +149,7 @@ jobs:
           # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-adblock=y
           CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-baidupcs-web=y
           CONFIG_PACKAGE_luci-app-docker=y
